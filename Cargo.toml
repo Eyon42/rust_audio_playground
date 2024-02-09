@@ -1,0 +1,17 @@
+[package]
+name = "audio_playground"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+num = "0.4.1"
+
+[[bin]]
+name="wave"
+path="src/wave.rs"
+
+[[bin]]
+name="freq"
+path="src/freq.rs"
