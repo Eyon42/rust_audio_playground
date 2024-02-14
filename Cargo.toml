@@ -10,9 +10,9 @@ num = "0.4.1"
 byteorder = "1"
 
 [[bin]]
-name="wave"
-path="src/wave.rs"
+name = "wave"
+path = "src/wave.rs"
 
 [[bin]]
-name="freq"
-path="src/freq.rs"
+name = "freq"
+path = "src/freq.rs"

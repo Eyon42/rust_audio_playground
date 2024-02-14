@@ -38,8 +38,8 @@ pub struct WavHdr {
 }
 
 pub struct WavFile {
-    hdr: WavHdr,
-    data: Vec<BitDepth>,
+    pub hdr: WavHdr,
+    pub data: Vec<BitDepth>,
 }
 
 pub struct WavParams {
@@ -159,7 +159,6 @@ impl WavFile {
         f.sync_all().unwrap();
         Ok(())
     }
-
     pub fn read(path: &Path) -> Result<WavFile, Error> {
         // Reads the whole file into an in memory vector
         let file = match read(path) {
