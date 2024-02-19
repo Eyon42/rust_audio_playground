@@ -11,30 +11,30 @@ type Fourcc = [u8; 4];
 
 pub struct RiffHdr {
     id: Fourcc,
-    size: u32,
+    pub size: u32,
     block_type: Fourcc,
 }
 
 pub struct FmtHdr {
     id: Fourcc,
-    size: u32,
-    fmt_tag: u16,
-    channels: u16,
-    sample_rate: u32,
-    byte_rate: u32,
-    block_align: u16,
-    bits_per_sample: u16,
+    pub size: u32,
+    pub fmt_tag: u16,
+    pub channels: u16,
+    pub sample_rate: u32,
+    pub byte_rate: u32,
+    pub block_align: u16,
+    pub bits_per_sample: u16,
 }
 
 pub struct DataHdr {
     id: Fourcc,
-    size: u32,
+    pub size: u32,
 }
 
 pub struct WavHdr {
-    riff_hdr: RiffHdr,
-    fmt_ck: FmtHdr,
-    data_hdr: DataHdr,
+    pub riff_hdr: RiffHdr,
+    pub fmt_ck: FmtHdr,
+    pub data_hdr: DataHdr,
 }
 
 pub struct WavFile {

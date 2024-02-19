@@ -83,71 +83,73 @@ fn main() {
         volume,
     ));
 
-    let mut octave =
-        sampling::saw_wave_truncated(e4 / 2.0, sample_rate, half_note, BitDepth::U16(0), volume);
-    octave.append(&mut sampling::saw_wave_truncated(
-        e4 / 2.0,
-        sample_rate,
-        half_note,
-        BitDepth::U16(0),
-        volume,
-    ));
-    octave.append(&mut sampling::saw_wave_truncated(
-        e4 / 2.0,
-        sample_rate,
-        half_note,
-        BitDepth::U16(0),
-        volume,
-    ));
-    octave.append(&mut sampling::saw_wave_truncated(
-        c4 / 2.0,
-        sample_rate,
-        quarter_note * dot,
-        BitDepth::U16(0),
-        volume,
-    ));
-    octave.append(&mut sampling::saw_wave_truncated(
-        g4 / 2.0,
-        sample_rate,
-        eighth_note,
-        BitDepth::U16(0),
-        volume,
-    ));
-    octave.append(&mut sampling::saw_wave_truncated(
-        e4 / 2.0,
-        sample_rate,
-        half_note,
-        BitDepth::U16(0),
-        volume,
-    ));
-    octave.append(&mut sampling::saw_wave_truncated(
-        c4 / 2.0,
-        sample_rate,
-        quarter_note * dot,
-        BitDepth::U16(0),
-        volume,
-    ));
-    octave.append(&mut sampling::saw_wave_truncated(
-        g4 / 2.0,
-        sample_rate,
-        eighth_note,
-        BitDepth::U16(0),
-        volume,
-    ));
-    octave.append(&mut sampling::saw_wave_truncated(
-        e4 / 2.0,
-        sample_rate,
-        whole_note,
-        BitDepth::U16(0),
-        volume,
-    ));
+    // Add a dirty bass
+    // let mut octave =
+    //     sampling::saw_wave_truncated(e4 / 2.0, sample_rate, half_note, BitDepth::U16(0), volume);
+    // octave.append(&mut sampling::saw_wave_truncated(
+    //     e4 / 2.0,
+    //     sample_rate,
+    //     half_note,
+    //     BitDepth::U16(0),
+    //     volume,
+    // ));
+    // octave.append(&mut sampling::saw_wave_truncated(
+    //     e4 / 2.0,
+    //     sample_rate,
+    //     half_note,
+    //     BitDepth::U16(0),
+    //     volume,
+    // ));
+    // octave.append(&mut sampling::saw_wave_truncated(
+    //     c4 / 2.0,
+    //     sample_rate,
+    //     quarter_note * dot,
+    //     BitDepth::U16(0),
+    //     volume,
+    // ));
+    // octave.append(&mut sampling::saw_wave_truncated(
+    //     g4 / 2.0,
+    //     sample_rate,
+    //     eighth_note,
+    //     BitDepth::U16(0),
+    //     volume,
+    // ));
+    // octave.append(&mut sampling::saw_wave_truncated(
+    //     e4 / 2.0,
+    //     sample_rate,
+    //     half_note,
+    //     BitDepth::U16(0),
+    //     volume,
+    // ));
+    // octave.append(&mut sampling::saw_wave_truncated(
+    //     c4 / 2.0,
+    //     sample_rate,
+    //     quarter_note * dot,
+    //     BitDepth::U16(0),
+    //     volume,
+    // ));
+    // octave.append(&mut sampling::saw_wave_truncated(
+    //     g4 / 2.0,
+    //     sample_rate,
+    //     eighth_note,
+    //     BitDepth::U16(0),
+    //     volume,
+    // ));
+    // octave.append(&mut sampling::saw_wave_truncated(
+    //     e4 / 2.0,
+    //     sample_rate,
+    //     whole_note,
+    //     BitDepth::U16(0),
+    //     volume,
+    // ));
 
-    let mut output = Vec::new();
-    let mut i = 0;
-    for s in data {
-        output.push(s + octave[i]);
-        i += 1;
-    }
+    // let mut output = Vec::new();
+    // let mut i = 0;
+    // for s in data {
+    //     output.push(s + octave[i]);
+    //     i += 1;
+    // }
+    let output = data;
 
     println!("Feel the evil");
 
@@ -155,7 +157,7 @@ fn main() {
     let params = WavParams {
         sample_rate: sample_rate,
         channels: 1,
-    };
+    };
     let wav = WavFile::new(params, output);
 
     wav.write(&Path::new("out/test.wav")).unwrap();
