@@ -4,7 +4,6 @@ use libs::wav::BitDepth;
 use crate::libs::amdf::amdf;
 use crate::libs::notation::freq_to_note;
 use crate::libs::wav::WavFile;
-use std::borrow::Borrow;
 use std::path::Path;
 
 fn bit_depth_to_float(s: &BitDepth) -> f64 {

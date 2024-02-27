@@ -8,6 +8,12 @@ edition = "2021"
 [dependencies]
 num = "0.4.1"
 byteorder = "1"
+cpal = { version = "0.15.2", features = ["jack"] }
+clap = { version = "4.5.0", features = ["derive"] }
+anyhow = "1.0.80"
+clap_derive = "4.5.0"
+ringbuf = "0.3.3"
+autopilot = "0.4.0"
 
 [[bin]]
 name = "wave"
@@ -16,3 +22,25 @@ path = "src/wave.rs"
 [[bin]]
 name = "freq"
 path = "src/freq.rs"
+
+[[bin]]
+name = "jack"
+path = "src/jack.rs"
+
+
+[[bin]]
+name = "example"
+path = "src/example.rs"
+
+[[bin]]
+name = "ex_fb"
+path = "src/ex_feedback.rs"
+
+[[bin]]
+name = "osc"
+path = "src/osc.rs"
+
+
+[[bin]]
+name = "mouse"
+path = "src/mouse.rs"

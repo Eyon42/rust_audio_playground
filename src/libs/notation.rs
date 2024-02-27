@@ -1,4 +1,4 @@
-fn gen_notes() -> Vec<f64> {
+pub fn gen_notes() -> Vec<f64> {
     let a0: f64 = 27.50;
     let semitone = 2.0f64.powf(1.0 / 12.0);
 
@@ -60,6 +60,7 @@ pub fn fit_to_scale(scale: &Vec<f64>, note_freq: f64) -> usize {
     // scale must be sorted
     let mut low = 0;
     let mut high = scale.len() - 1;
+    //Bound the search
     for _ in 0..100 {
         let current_index = (low + high) / 2;
         let current = scale[current_index];
